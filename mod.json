@@ -1,10 +1,26 @@
 {
-    "geode": "2.0.0-beta.15",
-    "gd": "2.204",
-    "version": "v1.0.0",
+    "geode": "4.0.0-alpha.1",
+    "gd": {
+        "win": "2.2074",
+        "android": "2.2074"
+    },
+    "version": "v1.1.0",
     "id": "nyakofox.channelviewer",
     "name": "ChannelViewer",
     "developer": "NyakoFox",
     "description": "View channels during gameplay.",
-    "repository": "https://github.com/NyakoFox/ChannelViewer"
+    "repository": "https://github.com/NyakoFox/ChannelViewer",
+    "issues": {
+        "info": "It's best to report issues on the GitHub issue tracker.",
+        "url": "https://github.com/NyakoFox/ChannelViewer/issues"
+    },
+    "tags": [ "editor" ],
+    "settings": {
+        "channelviewer-enabled": {
+            "type": "bool",
+            "name": "Enable ChannelViewer",
+            "description": "Show the current channel in the top-left of the screen",
+            "default": true
+        }
+    }
 }

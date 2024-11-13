@@ -25,6 +25,11 @@ class $modify(GJBaseGameLayer) {
     void update(float dt) {
         GJBaseGameLayer::update(dt);
 
+        if (!Mod::get()->getSettingValue<bool>("channelviewer-enabled"))
+        {
+            return;
+        }
+
         // Grab UI Layer
         auto uiLayer = this->getChildByID("UILayer");
         if (uiLayer) {
@@ -32,22 +37,24 @@ class $modify(GJBaseGameLayer) {
             CCLabelBMFont* text = (CCLabelBMFont*) uiLayer->getChildByID("channelid");
             if (text) {
                 // Set the text to the channel ID
-                text->setString(("Channel: " + std::to_string(this->m_gameState.m_unk190)).c_str());
+                text->setString(("Channel: " + std::to_string(this->m_gameState.m_currentChannel)).c_str());
             }
         }
     }
 };
 
 class $modify(UILayer) {
-    CCLabelBMFont* text;
+    struct Fields {
+        CCLabelBMFont* text = nullptr;
+    };
 
-    bool init(GJBaseGameLayer * layer) {
+    bool init(GJBaseGameLayer* layer) {
         if (!UILayer::init(layer)) return false;
 
         auto director = CCDirector::sharedDirector();
         float screenTop = director->getScreenTop();
 
-        m_fields->text = CCLabelBMFont::create("Channel: ", "bigFont.fnt");
+        m_fields->text = CCLabelBMFont::create("", "bigFont.fnt");
 
         m_fields->text->setID("channelid");
         m_fields->text->setScale(0.4f);
