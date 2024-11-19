@@ -30,15 +30,11 @@ class $modify(GJBaseGameLayer) {
             return;
         }
 
-        // Grab UI Layer
-        auto uiLayer = this->getChildByID("UILayer");
-        if (uiLayer) {
-            // Grab the text label
-            CCLabelBMFont* text = (CCLabelBMFont*) uiLayer->getChildByID("channelid");
-            if (text) {
-                // Set the text to the channel ID
-                text->setString(("Channel: " + std::to_string(this->m_gameState.m_currentChannel)).c_str());
-            }
+        // Grab the text label
+        CCLabelBMFont* text = (CCLabelBMFont*) this->m_uiLayer->getChildByID("channelid");
+        if (text) {
+            // Set the text to the channel ID
+            text->setString(("Channel: " + std::to_string(this->m_gameState.m_currentChannel)).c_str());
         }
     }
 };

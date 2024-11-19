@@ -1,3 +1,7 @@
+# v1.1.2
+
+* Remove accidental dependency on NodeIDs
+
 # v1.1.1
 
 * Updated to latest Geode (4.0.0-beta.1) for Geometry Dash 2.2074
